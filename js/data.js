@@ -82,7 +82,19 @@ const RESPOSTES_EQUIVALENTS={
   18:["igual","el mateix"],19:["avi pare fill","tres persones"],21:["12","dotze","tots"],22:["no posa ous","un gall no pon ous"],23:["50","cinquanta"],24:["5","cinc"],25:["15","quinze"],26:["trenta-dos"],27:["vint-i-cinc"],28:["vuit"],29:["12","dotze"],30:["32","trenta-dues"],31:["90","noranta graus"],32:["1","un cop"],33:["quatre-cents vint-i-set"],34:["setze"],35:["setanta"],36:["m"],37:["a"],38:["n"],39:["7","set"],40:["a"],42:["a"],46:["5","cinc"],47:["segon","segona"],48:["cap","no hi ha fum"],50:["60 minuts","1 hora"]
 };
 
+const RESPOSTES_CASTELLANES={
+  1:["un reloj","reloj"],2:["una toalla","toalla"],3:["un peine","peine"],4:["una botella","botella"],5:["una mesa","mesa"],
+  6:["una escalera","escalera"],7:["un libro","libro"],8:["un piano","piano"],9:["una aguja","aguja"],10:["la oscuridad","oscuridad"],
+  11:["el silencio","silencio"],12:["un rio","rio"],13:["el reflejo","reflejo"],14:["un mapa","mapa"],15:["un resfriado","resfriado","un catarro","catarro"],
+  16:["el futuro","futuro"],17:["la luz","luz"],18:["pesan igual","lo mismo"],19:["abuelo padre e hijo","abuelo padre hijo","tres personas"],20:["dos manzanas"],
+  21:["todos los meses","los doce meses","doce meses"],22:["los gallos no ponen huevos","un gallo no pone huevos","no cae"],23:["cincuenta dedos"],24:["cinco gatos"],25:["quince años"],
+  26:["treinta y dos"],27:["veinticinco"],28:["ocho"],29:["doce huevos"],30:["treinta y dos patas"],31:["noventa grados"],32:["una vez"],
+  33:["cuatrocientos veintisiete"],34:["dieciseis"],35:["setenta"],36:["la letra m","m"],37:["la letra a","a"],38:["la letra n","n"],
+  39:["siete letras","siete"],40:["la letra a","a"],41:["amor"],42:["la letra a","a"],43:["un gato","gato"],44:["una pera","pera"],45:["radar"],
+  46:["cinco hijos","cinco"],47:["segundo puesto","segunda posicion","segundo"],48:["no hace humo","no hay humo"],49:["la cerilla","cerilla","un fosforo","fosforo"],50:["una hora","sesenta minutos"]
+};
+
 const ENIGMES=ENIGMES_BASE.map(enigma=>{
   const senseArticle=enigma.solucio.replace(/^(un|una|el|la|els|les)\s+/i,'');
-  return {...enigma,respostes:[enigma.solucio,senseArticle,...(RESPOSTES_EQUIVALENTS[enigma.id]||[])]};
+  return {...enigma,respostes:[enigma.solucio,senseArticle,...(RESPOSTES_EQUIVALENTS[enigma.id]||[]),...(RESPOSTES_CASTELLANES[enigma.id]||[])]};
 });
